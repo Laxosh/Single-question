@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Quick Quiz</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .quiz-box {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 16px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .option {
+      background: #eef1f5;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .option:hover {
+      background: #e2e6eb;
+    }
+
+    .correct {
+      background: #d4edda;
+      border-color: #28a745;
+    }
+
+    .wrong {
+      background: #f8d7da;
+      border-color: #dc3545;
+    }
+
+    .answer-box {
+      margin-top: 14px;
+      display: none;
+      background: #f1f3f5;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+  <h2>🧪 Quick Quiz – Chemistry</h2>
+
+  <div class="question">
+    Which particle in an atom has a negative charge?
+  </div>
+
+  <div class="option" onclick="checkAnswer(this, false)">A) Proton</div>
+  <div class="option" onclick="checkAnswer(this, false)">B) Neutron</div>
+  <div class="option" onclick="checkAnswer(this, true)">C) Electron</div>
+  <div class="option" onclick="checkAnswer(this, false)">D) Nucleus</div>
+
+  <div class="answer-box" id="answerBox">
+    ✅ <b>Correct Answer:</b> Electron  
+    <br><br>
+    <b>Explanation:</b>  
+    Electrons carry a negative charge and move around the nucleus. Protons are positive, and neutrons have no charge.
+  </div>
+
+  <div class="note">
+    Tap one option to check your answer
+  </div>
+
+</div>
+
+<script>
+  function checkAnswer(selectedOption, isCorrect) {
+    const options = document.querySelectorAll('.option');
+    options.forEach(opt => opt.onclick = null);
+
+    if (isCorrect) {
+      selectedOption.classList.add('correct');
+    } else {
+      selectedOption.classList.add('wrong');
+    }
+
+    document.getElementById('answerBox').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
